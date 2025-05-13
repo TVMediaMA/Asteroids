@@ -76,6 +76,11 @@ def main():
                 print("Game over!")
                 pygame.quit()
                 return
+            for shot in bullets:
+                if shape.collide(shot):
+                    # Remove the asteroid and the shot
+                    shape.split()
+                    shot.kill()
 
         # Cap the frame rate
         dt = clock.tick(60) / 1000.0
